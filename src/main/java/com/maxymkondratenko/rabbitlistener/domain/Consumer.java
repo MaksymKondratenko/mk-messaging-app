@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
 
 @Component
 @Slf4j
-public class Listener {
+public class Consumer {
     @Getter
     private CountDownLatch latch = new CountDownLatch(1);
 

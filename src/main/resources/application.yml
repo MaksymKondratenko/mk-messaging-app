@@ -3,3 +3,4 @@ amqp:
   queue-name: poc-queue
   routing-key: poc-routing-key
   listener-method: receiveMessage
+  default-message: Hi, this is a default message

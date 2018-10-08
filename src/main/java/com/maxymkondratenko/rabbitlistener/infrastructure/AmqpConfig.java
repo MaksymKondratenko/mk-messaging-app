@@ -1,6 +1,7 @@
 package com.maxymkondratenko.rabbitlistener.infrastructure;
 
-import com.maxymkondratenko.rabbitlistener.domain.Listener;
+import com.maxymkondratenko.rabbitlistener.domain.Consumer;
+import lombok.AllArgsConstructor;
 import lombok.Setter;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -10,34 +11,30 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "amqp")
 @Setter
+@AllArgsConstructor
 public class AmqpConfig {
-    private String exchangeName;
-    private String queueName;
-    private String routingKey;
-    private String listenerMethod;
+    private final Props props;
 
     @Bean
     public Queue queue() {
-        return new Queue(queueName, false);
+        return new Queue(props.getQueueName(), false);
     }
 
     @Bean
     public TopicExchange exchange() {
-        return new TopicExchange(exchangeName);
+        return new TopicExchange(props.getExchangeName());
     }
 
     @Bean
     public Binding binding(Queue queue, TopicExchange exchange) {
         return BindingBuilder.bind(queue)
                 .to(exchange)
-                .with(routingKey);
+                .with(props.getRoutingKey());
     }
 
     @Bean
@@ -45,14 +42,14 @@ public class AmqpConfig {
                                                     MessageListenerAdapter adapter) {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
         container.setConnectionFactory(factory);
-        container.setQueueNames(queueName);
+        container.setQueueNames(props.getQueueName());
         container.setMessageListener(adapter);
         return container;
     }
 
     @Bean
     @Autowired
-    public MessageListenerAdapter listenerAdapter(Listener listener) {
-        return new MessageListenerAdapter(listener, listenerMethod);
+    public MessageListenerAdapter listenerAdapter(Consumer consumer) {
+        return new MessageListenerAdapter(consumer, props.getListenerMethod());
     }
 }
