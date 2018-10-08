@@ -1,7 +1,7 @@
 package com.maxymkondratenko.rabbitlistener.infrastructure;
 
 import com.maxymkondratenko.rabbitlistener.domain.Consumer;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -15,8 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@Setter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AmqpConfig {
     private final Props props;
 
