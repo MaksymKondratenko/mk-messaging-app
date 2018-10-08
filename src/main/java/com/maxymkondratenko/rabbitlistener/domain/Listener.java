@@ -1,4 +1,4 @@
-package com.maxymkondratenko.rabbitlistener;
+package com.maxymkondratenko.rabbitlistener.domain;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
