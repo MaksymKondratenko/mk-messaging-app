@@ -1,4 +1,4 @@
-package com.maxymkondratenko.rabbitlistener.infrastructure;
+package com.maxymkondratenko.rabbitlistener;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
