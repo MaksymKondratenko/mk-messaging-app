@@ -14,7 +14,7 @@ public class Controller {
     private final Producer producer;
 
     @PostMapping("/{messages}")
-    public ResponseEntity<String[]> addNewMessage(@PathVariable("messages") String... messages) throws Exception {
+    public ResponseEntity<String[]> addNewMessage(@PathVariable("messages") String... messages) {
         producer.send(messages);
         return ResponseEntity.ok(messages);
     }
