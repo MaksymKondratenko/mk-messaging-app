@@ -23,7 +23,8 @@
     </properties>
 
     <modules>
-        <module>rabbitlistener</module>
+        <module>kafka-listener</module>
+        <module>rabbit-listener</module>
     </modules>
 
     <dependencies>
