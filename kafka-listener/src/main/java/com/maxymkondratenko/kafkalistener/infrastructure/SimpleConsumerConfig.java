@@ -16,7 +16,7 @@ import static org.apache.kafka.clients.consumer.ConsumerConfig.*;
 
 @Configuration
 @Setter
-public class ConsumerConfig {
+public class SimpleConsumerConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String servers;
 

@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/kafka/message")
 @RequiredArgsConstructor
 public class Controller {
-    private final Producer producer;
+    private final SimpleProducer simpleProducer;
 
     @PostMapping("/{messages}")
     public ResponseEntity<String[]> addNewMessage(@PathVariable("messages") String... messages) {
-        producer.send(messages);
+        simpleProducer.sendWoResponse(messages);
         return ResponseEntity.ok(messages);
     }
 }
