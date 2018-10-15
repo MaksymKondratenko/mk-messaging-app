@@ -1,5 +1,7 @@
 kafka:
-  topic: poc-topic
+  simple-topic: 'simple-topic'
+  reply-topic: 'reply-topic'
+  sent-to-topic: 'sent-to-topic'
 
 spring:
   kafka:
