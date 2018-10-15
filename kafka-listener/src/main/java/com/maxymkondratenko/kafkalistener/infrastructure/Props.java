@@ -10,12 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 public class Props {
-    private String topic;
-/*
-    private String exchangeName;
-    private String queueName;
-    private String routingKey;
-    private String listenerMethod;
-    private String defaultMessage;
-*/
+    private String simpleTopic;
+    private String replyTopic;
+    private String sentToTopic;
 }

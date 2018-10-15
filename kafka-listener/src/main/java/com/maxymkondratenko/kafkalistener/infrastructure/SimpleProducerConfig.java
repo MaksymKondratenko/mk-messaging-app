@@ -16,7 +16,7 @@ import static org.apache.kafka.clients.producer.ProducerConfig.*;
 
 @Configuration
 @Setter
-public class ProducerConfig {
+public class SimpleProducerConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String servers;
 
