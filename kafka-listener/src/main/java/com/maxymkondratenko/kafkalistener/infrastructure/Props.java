@@ -13,4 +13,5 @@ public class Props {
     private String simpleTopic;
     private String replyTopic;
     private String sentToTopic;
+    private String specificTopic;
 }
