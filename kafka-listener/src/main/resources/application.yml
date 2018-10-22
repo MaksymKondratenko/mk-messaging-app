@@ -2,6 +2,7 @@ kafka:
   simple-topic: 'simple-topic'
   reply-topic: 'reply-topic'
   sent-to-topic: 'sent-to-topic'
+  specific-topic: 'specific-topic'
 
 spring:
   kafka:
